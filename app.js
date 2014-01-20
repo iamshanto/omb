@@ -14,11 +14,16 @@ Ext.application({
     name: 'omb',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+        'Ext.data.TreeStore'
+    ],
+
+    controllers: [
+        'Home'
     ],
 
     views: [
-        'Main', 'Home'
+        'Main', 'Home', 'About'
     ],
 
     icon: {

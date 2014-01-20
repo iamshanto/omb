@@ -84,10 +84,7 @@ Ext.define('omb.view.Main', {
             {
                 title: 'About',
                 iconCls: 'organize',
-
-                html: [
-                    "About Text will be here"
-                ].join("")
+                xtype: 'aboutpage'
             },
             {
                 title: 'Get Started',
