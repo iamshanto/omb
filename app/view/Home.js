@@ -79,7 +79,7 @@ Ext.define('omb.view.Home', {
                                         label: 'Login',
                                         ui: 'action',
                                         handler: function(){
-                                            Ext.getCmp('homepage').setActiveItem(2);
+                                            Ext.getCmp('homepage').animateActiveItem(2, { type: 'slide'});
                                         }
 
                                     }
@@ -87,15 +87,6 @@ Ext.define('omb.view.Home', {
                                 ]
                             }
                         ]
-                    },
-
-                    {
-                        xtype: 'button',
-                        text: 'Login',
-                        align: 'center',
-                        handler: function(){
-                            Ext.getCmp('homepage').animateActiveItem(2, { type: 'slide'});
-                        }
                     }
                 ]
             },

@@ -49,11 +49,36 @@ Ext.define('omb.view.Main', {
                 title: 'ATM',
                 iconCls: 'maps',
 
+                mapMarkers : [], // store all markers
                 xtype: 'map',
                 mapOptions: {
                     center: new google.maps.LatLng (38.909027,-77.037165),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     zoom: 17
+                },
+                initialize: function() {
+                    var gMap = this.getMap();
+
+                    // add traffic layer
+                    var trafficLayer = new google.maps.TrafficLayer();
+                    trafficLayer.setMap(gMap);
+
+                    // add panoramio layer
+                    /*var panoramioLayer = new google.maps.panoramio.PanoramioLayer();
+                    panoramioLayer.setMap(gMap);*/
+
+                    // drop map marker
+                    var marker = new google.maps.Marker({
+                        map: gMap,
+                        animation: google.maps.Animation.DROP,
+                        position: new google.maps.LatLng (38.909027,-77.037165)
+                    });
+                },
+                clearMarkers: function() {
+                    for (var i=0; i<this.mapMarkers.length; i++) {
+                        this.mapMarkers[i].setMap(null);
+                    }
+                    this.mapMarkers = new Array();
                 }
             },
             {
