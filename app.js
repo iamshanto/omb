@@ -18,12 +18,20 @@ Ext.application({
         'Ext.data.TreeStore'
     ],
 
+    stores: [
+        'Branches'
+    ],
+
     controllers: [
         'Home'
     ],
 
+    models: [
+        'Branch'
+    ],
+
     views: [
-        'Main', 'Home', 'About', 'AccountDetail', 'FundTransfer', 'BillPay'
+        'Main', 'Home', 'About', 'AccountDetail', 'FundTransfer', 'BillPay', 'Branch'
     ],
 
     icon: {

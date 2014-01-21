@@ -84,6 +84,26 @@ var data = {
                             id: 'fund-transfer-form-8'
                         }
                     ]
+                },
+                {
+                    text: 'To Credit Card',
+                    items: [
+                        {
+                            text: 'Visa - 4444424444444440',
+                            leaf: true,
+                            id: 'fund-transfer-card-form-0'
+                        },
+                        {
+                            text: 'MasterCard - 4061724061724061',
+                            leaf: true,
+                            id: 'fund-transfer-card-form-1'
+                        },
+                        {
+                            text: 'Discover - 6011016011016011',
+                            leaf: true,
+                            id: 'fund-transfer-card-form-2'
+                        }
+                    ]
                 }
             ]
         },
@@ -135,7 +155,8 @@ Ext.define('omb.view.Home', {
         'Ext.Img',
         'Ext.dataview.NestedList',
         'Ext.form.FieldSet',
-        'Ext.field.Password'
+        'Ext.field.Password',
+        'Ext.field.Select'
     ],
     config: {
         layout: {
@@ -168,7 +189,7 @@ Ext.define('omb.view.Home', {
                     {
                         html: [
                             "<br>",
-                            "Welcome to Bank Asia online banking service.",
+                            "Welcome to Bank Asia <br>online banking service.",
                             "<br><br>"
                         ].join("")
                     },
@@ -250,8 +271,6 @@ Ext.define('omb.view.Home', {
                     },*/
                     leafitemtap: function(me, list, index, target, record, e, eOpts){
 
-                        console.log("leafitemtap => "+record.internalId);
-
                         switch (record.internalId) {
                             case 'bank-account-detail-0':
                             case 'bank-account-detail-1':
@@ -268,6 +287,9 @@ Ext.define('omb.view.Home', {
                             case 'fund-transfer-form-6':
                             case 'fund-transfer-form-7':
                             case 'fund-transfer-form-8':
+                            case 'fund-transfer-card-form-0':
+                            case 'fund-transfer-card-form-1':
+                            case 'fund-transfer-card-form-2':
                                 detailView = Ext.create('omb.view.FundTransfer');
                                 break;
 
@@ -278,7 +300,9 @@ Ext.define('omb.view.Home', {
                                 break;
                         }
 
-                        this.setDetailCard(detailView);
+                        if (typeof(detailView) != 'undefined'){
+                            this.setDetailCard(detailView);
+                        }
 
                         /*this.getDetailCard().setHtml(detailView.getHtml());
 

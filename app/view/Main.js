@@ -27,23 +27,10 @@ Ext.define('omb.view.Main', {
                 xtype: 'homepage'
             },
             {
-                title: 'Welcome',
+                title: 'Branches',
                 iconCls: 'settings',
 
-                styleHtmlContent: true,
-                scrollable: true,
-
-                items: {
-                    docked: 'top',
-                    xtype: 'titlebar',
-                    title: 'Welcome to Sencha Touch 2'
-                },
-
-                html: [
-                    "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
-                    "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
-                    "and refresh to change what's rendered here."
-                ].join("")
+                xtype: 'branch'
             },
             {
                 title: 'ATM',
@@ -55,17 +42,18 @@ Ext.define('omb.view.Main', {
                     center: new google.maps.LatLng (38.909027,-77.037165),
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     zoom: 17
-                },
+                }
+                /*,
                 initialize: function() {
                     var gMap = this.getMap();
 
                     // add traffic layer
-                    /*var trafficLayer = new google.maps.TrafficLayer();
-                    trafficLayer.setMap(gMap);*/
+                    *//**//*var trafficLayer = new google.maps.TrafficLayer();
+                    trafficLayer.setMap(gMap);*//**//*
 
                     // add panoramio layer
-                    /*var panoramioLayer = new google.maps.panoramio.PanoramioLayer();
-                    panoramioLayer.setMap(gMap);*/
+                    *//**//*var panoramioLayer = new google.maps.panoramio.PanoramioLayer();
+                    panoramioLayer.setMap(gMap);*//**//*
 
                     // drop map marker
                     var marker = new google.maps.Marker({
@@ -79,7 +67,7 @@ Ext.define('omb.view.Main', {
                         this.mapMarkers[i].setMap(null);
                     }
                     this.mapMarkers = new Array();
-                }
+                }*/
             },
             {
                 title: 'About',

@@ -17,6 +17,7 @@ Ext.Loader.addClassPathMappings({
   "Ext.device.sqlite.SQLResultSetRowList": "touch/src/device/sqlite/Sencha.js",
   "Ext.device.sqlite.SQLTransaction": "touch/src/device/sqlite/Sencha.js",
   "Ext.draw.engine.SvgContext.Gradient": "touch/src/draw/engine/SvgContext.js",
+  "ListItem": "app/view/Home.js",
   "omb": "app"
 });
 Ext.ClassManager.addNameAlternateMappings({
@@ -743,6 +744,16 @@ Ext.ClassManager.addNameAlternateMappings({
   "Ext.viewport.WindowsPhone": [
     "Ext.viewport.WP"
   ],
+  "ListItem": [],
+  "omb.controller.Home": [],
+  "omb.model.Branch": [],
+  "omb.store.Branches": [],
+  "omb.view.About": [],
+  "omb.view.AccountDetail": [],
+  "omb.view.BillPay": [],
+  "omb.view.Branch": [],
+  "omb.view.FundTransfer": [],
+  "omb.view.Home": [],
   "omb.view.Main": []
 });
 Ext.ClassManager.addNameAliasMappings({
@@ -1687,6 +1698,28 @@ Ext.ClassManager.addNameAliasMappings({
   "Ext.viewport.Ios": [],
   "Ext.viewport.Viewport": [],
   "Ext.viewport.WindowsPhone": [],
+  "ListItem": [],
+  "omb.controller.Home": [],
+  "omb.model.Branch": [],
+  "omb.store.Branches": [],
+  "omb.view.About": [
+    "widget.aboutpage"
+  ],
+  "omb.view.AccountDetail": [
+    "widget.AccountDetail"
+  ],
+  "omb.view.BillPay": [
+    "widget.BillPay"
+  ],
+  "omb.view.Branch": [
+    "widget.branch"
+  ],
+  "omb.view.FundTransfer": [
+    "widget.FundTransfer"
+  ],
+  "omb.view.Home": [
+    "widget.homepage"
+  ],
   "omb.view.Main": [
     "widget.main"
   ]
