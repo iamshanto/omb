@@ -23,7 +23,7 @@ Ext.application({
     ],
 
     views: [
-        'Main', 'Home', 'About'
+        'Main', 'Home', 'About', 'AccountDetail', 'FundTransfer', 'BillPay'
     ],
 
     icon: {

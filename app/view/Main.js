@@ -60,8 +60,8 @@ Ext.define('omb.view.Main', {
                     var gMap = this.getMap();
 
                     // add traffic layer
-                    var trafficLayer = new google.maps.TrafficLayer();
-                    trafficLayer.setMap(gMap);
+                    /*var trafficLayer = new google.maps.TrafficLayer();
+                    trafficLayer.setMap(gMap);*/
 
                     // add panoramio layer
                     /*var panoramioLayer = new google.maps.panoramio.PanoramioLayer();
@@ -85,7 +85,7 @@ Ext.define('omb.view.Main', {
                 title: 'About',
                 iconCls: 'organize',
                 xtype: 'aboutpage'
-            },
+            }/*,
             {
                 title: 'Get Started',
                 iconCls: 'action',
@@ -102,7 +102,7 @@ Ext.define('omb.view.Main', {
                         posterUrl: 'http://b.vimeocdn.com/ts/261/062/261062119_640.jpg'
                     }
                 ]
-            }
+            }*/
         ]
     }
 });

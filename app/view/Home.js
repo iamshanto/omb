@@ -1,60 +1,113 @@
 var data = {
-    text: 'Groceries',
-    items: [{
-        text: 'Drinks',
-        items: [{
-            text: 'Water',
-            items: [{
-                text: 'Sparkling',
-                leaf: true,
-                items: [
-                    {
-                        xtypes: 'panel',
-                        html: "Some Info"
-                    }
-                ]
-            }, {
-                text: 'Still',
-                leaf: true
-            }]
-        }, {
-            text: 'Coffee',
-            leaf: true
-        }, {
-            text: 'Espresso',
-            leaf: true
-        }, {
-            text: 'Redbull',
-            leaf: true
-        }, {
-            text: 'Coke',
-            leaf: true
-        }, {
-            text: 'Diet Coke',
-            leaf: true
-        }]
-    }, {
-        text: 'Fruit',
-        items: [{
-            text: 'Bananas',
-            leaf: true
-        }, {
-            text: 'Lemon',
-            leaf: true
-        }]
-    }, {
-        text: 'Snacks',
-        items: [{
-            text: 'Nuts',
-            leaf: true
-        }, {
-            text: 'Pretzels',
-            leaf: true
-        }, {
-            text: 'Wasabi Peas',
-            leaf: true
-        }]
-    }]
+    text: 'Services',
+    items: [
+        {
+            text: 'Your Bank Account',
+            items: [
+                {
+                    text: 'Account No. 1234567890',
+                    leaf: true,
+                    id: 'bank-account-detail-0'
+                },
+                {
+                    text: 'Account No. 1234567891',
+                    leaf: true,
+                    id: 'bank-account-detail-1'
+                },
+                {
+                    text: 'Account No. 1234567892',
+                    leaf: true,
+                    id: 'bank-account-detail-2'
+                }
+            ]
+        },
+        {
+            text: 'Fund Transfer',
+            items: [
+                {
+                    text: 'Your own Bank Asia account',
+
+                    items: [
+                        {
+                            text: 'Account: 1234567891',
+                            leaf: true,
+                            id: 'fund-transfer-form-0'
+                        },
+                        {
+                            text: 'Account: 1234567892',
+                            leaf: true,
+                            id: 'fund-transfer-form-1'
+                        },
+                        {
+                            text: 'Account: 1234567893',
+                            leaf: true,
+                            id: 'fund-transfer-form-2'
+                        }
+                    ]
+                },
+                {
+                    text: 'Other Bank Asia Account',
+                    items: [
+                        {
+                            text: 'Account: 2234567891',
+                            leaf: true,
+                            id: 'fund-transfer-form-3'
+                        },
+                        {
+                            text: 'Account: 2234567892',
+                            leaf: true,
+                            id: 'fund-transfer-form-4'
+                        },
+                        {
+                            text: 'Account: 2234567893',
+                            leaf: true,
+                            id: 'fund-transfer-form-5'
+                        }
+                    ]
+                },
+                {
+                    text: 'Other Bank Account',
+                    items: [
+                        {
+                            text: 'Other Bank Account: 2234567891',
+                            leaf: true,
+                            id: 'fund-transfer-form-6'
+                        },
+                        {
+                            text: 'Other Bank Account: 2234567892',
+                            leaf: true,
+                            id: 'fund-transfer-form-7'
+                        },
+                        {
+                            text: 'Other Bank Account: 2234567893',
+                            leaf: true,
+                            id: 'fund-transfer-form-8'
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            text: 'Bill Pay',
+            items: [
+                {
+                    text: 'Mobile',
+                    leaf: true,
+                    id: 'bill-pay-form-0'
+                },
+                {
+                    text: 'Internet',
+                    leaf: true,
+                    id: 'bill-pay-form-1'
+                },
+                {
+                    text: 'Electricity',
+                    leaf: true,
+                    id: 'bill-pay-form-2'
+                }
+            ]
+        }
+    ]
 };
 
 Ext.define('ListItem', {
@@ -91,10 +144,10 @@ Ext.define('omb.view.Home', {
                 type: 'pop'
             }
         },
-        cls: 'home-page',
         id: 'homepage',
         items: [
             {
+                cls: 'home-page',
                 items: [
                     {
                         docked: 'top',
@@ -103,26 +156,28 @@ Ext.define('omb.view.Home', {
                     },
                     {
                         xtype: 'panel',
-                        html: 'asd'
+                        html: '<br><br>'
                     },
-
                     {
                         xtype: 'image',
                         src: 'resources/images/bank_asia_logo.gif',
                         height: 70,
-                        width: 290
+                        width: 290,
+                        style: 'margin:auto'
                     },
                     {
                         html: [
-                            "You've just generated a new Sencha Touch 2 project. What you're looking at right now is the ",
-                            "contents of <a target='_blank' href=\"app/view/Main.js\">app/view/Main.js</a> - edit that file ",
-                            "and refresh to change what's rendered here."
+                            "<br>",
+                            "Welcome to Bank Asia online banking service.",
+                            "<br><br>"
                         ].join("")
                     },
                     {
                         xtype: 'button',
                         text: 'Login',
-                        align: 'center',
+                        style: 'margin:auto',
+                        width: '50%',
+                        ui: 'action',
                         handler: function(){
                             Ext.getCmp('homepage').setActiveItem(1);
                         }
@@ -159,12 +214,12 @@ Ext.define('omb.view.Home', {
                                         label: 'Login',
                                         ui: 'action',
                                         handler: function(){
-                                            var value = Ext.getCmp('username').getValue();
                                             if (Ext.getCmp('username').getValue() != 'admin') {
                                                 Ext.Msg.alert('Error', 'Invalid login', Ext.emptyFn);
                                             } else {
-                                                Ext.getCmp('homepage').animateActiveItem(2, { type: 'slide'});
+                                                Ext.getCmp('homepage').setActiveItem(2);
                                             }
+                                            //Ext.getCmp('homepage').animateActiveItem(2, { type: 'slide'});
                                         }
 
                                     }
@@ -177,7 +232,7 @@ Ext.define('omb.view.Home', {
             },
             {
                 xtype:'nestedlist',
-                title: 'Groceries',
+                title: 'Services',
                 displayField: 'text',
                 store: store,
                 id: 'accountTaskList',
@@ -187,17 +242,50 @@ Ext.define('omb.view.Home', {
                     scrollable: true,
                     html: 'Hey buddy'
                 },
-                leafitemtap: function(me, list, index, target, record, e, eOpts){
-                    console.log(list);
-                    console.log(index);
-                    console.log(target);
-                    console.log(record);
-                },
-                itemtap: function( me, list, index, target, record, e, eOpts ){
-                    console.log(list);
-                    console.log(index);
-                    console.log(target);
-                    console.log(record);
+                listeners: {
+                    //This handler is require only if you want to update the detail card, etc.
+                    /*itemtap: function(nestedList, list, index, element, wall) {
+
+                        console.log(element);
+                    },*/
+                    leafitemtap: function(me, list, index, target, record, e, eOpts){
+
+                        console.log("leafitemtap => "+record.internalId);
+
+                        switch (record.internalId) {
+                            case 'bank-account-detail-0':
+                            case 'bank-account-detail-1':
+                            case 'bank-account-detail-2':
+                                detailView = Ext.create('omb.view.AccountDetail');
+                                break;
+
+                            case 'fund-transfer-form-0':
+                            case 'fund-transfer-form-1':
+                            case 'fund-transfer-form-2':
+                            case 'fund-transfer-form-3':
+                            case 'fund-transfer-form-4':
+                            case 'fund-transfer-form-5':
+                            case 'fund-transfer-form-6':
+                            case 'fund-transfer-form-7':
+                            case 'fund-transfer-form-8':
+                                detailView = Ext.create('omb.view.FundTransfer');
+                                break;
+
+                            case 'bill-pay-form-0':
+                            case 'bill-pay-form-1':
+                            case 'bill-pay-form-2':
+                                detailView = Ext.create('omb.view.BillPay');
+                                break;
+                        }
+
+                        this.setDetailCard(detailView);
+
+                        /*this.getDetailCard().setHtml(detailView.getHtml());
+
+                        var recordData = record.getData();*/
+                        /*detailView.setData(recordData);
+                        Ext.Viewport.add(detailView);*/
+                    }
                 }
             }
         ]
