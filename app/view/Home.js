@@ -23,6 +23,7 @@ var data = {
         },
         {
             text: 'Fund Transfer',
+            id: 'fund-transfer',
             items: [
                 {
                     text: 'Your own Bank Asia account',
@@ -109,21 +110,52 @@ var data = {
         },
         {
             text: 'Bill Pay',
+            id: 'bill-pay',
             items: [
                 {
                     text: 'Mobile',
-                    leaf: true,
-                    id: 'bill-pay-form-0'
+                    items: [
+                        {
+                            text: 'My Robi prepaid - 0181X XXX XXX',
+                            leaf: true,
+                            id: 'bill-pay-form-0'
+                        },
+                        {
+                            text: 'My GP Post paid - 0171X XXX XXX',
+                            leaf: true,
+                            id: 'bill-pay-form-1'
+                        }
+                    ]
                 },
                 {
                     text: 'Internet',
-                    leaf: true,
-                    id: 'bill-pay-form-1'
+                    items: [
+                        {
+                            text: 'Quebee - 0123456',
+                            leaf: true,
+                            id: 'bill-pay-form-2'
+                        },
+                        {
+                            text: 'Zoom Ultra',
+                            leaf: true,
+                            id: 'bill-pay-form-3'
+                        }
+                    ]
                 },
                 {
                     text: 'Electricity',
-                    leaf: true,
-                    id: 'bill-pay-form-2'
+                    items: [
+                        {
+                            text: 'Home',
+                            leaf: true,
+                            id: 'bill-pay-form-4'
+                        },
+                        {
+                            text: 'Office',
+                            leaf: true,
+                            id: 'bill-pay-form-5'
+                        }
+                    ]
                 }
             ]
         }
@@ -156,7 +188,8 @@ Ext.define('omb.view.Home', {
         'Ext.dataview.NestedList',
         'Ext.form.FieldSet',
         'Ext.field.Password',
-        'Ext.field.Select'
+        'Ext.field.Select',
+        'Ext.field.Number'
     ],
     config: {
         layout: {
@@ -265,10 +298,12 @@ Ext.define('omb.view.Home', {
                 },
                 listeners: {
                     //This handler is require only if you want to update the detail card, etc.
-                    /*itemtap: function(nestedList, list, index, element, wall) {
+                    itemtap: function(nestedList, list, index, element, wall) {
 
-                        console.log(element);
-                    },*/
+                        console.log(index);
+                        console.log(list);
+                        console.log(wall);
+                    },
                     leafitemtap: function(me, list, index, target, record, e, eOpts){
 
                         switch (record.internalId) {
@@ -296,6 +331,9 @@ Ext.define('omb.view.Home', {
                             case 'bill-pay-form-0':
                             case 'bill-pay-form-1':
                             case 'bill-pay-form-2':
+                            case 'bill-pay-form-3':
+                            case 'bill-pay-form-4':
+                            case 'bill-pay-form-5':
                                 detailView = Ext.create('omb.view.BillPay');
                                 break;
                         }

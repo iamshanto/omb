@@ -35,7 +35,7 @@ Ext.define('omb.view.FundTransfer', {
                         ]
                     },
                     {
-                        xtype: 'textfield',
+                        xtype: 'numberfield',
                         label: 'Amount'
                     },
                     {
@@ -46,7 +46,8 @@ Ext.define('omb.view.FundTransfer', {
                             Ext.Msg.confirm("Confirmation", "Are you sure?", function(response){
                                 if (response == 'yes') {
                                     Ext.Msg.alert("Confirmation", "Transfer complete", function(){
-
+                                        var node = store.getById('fund-transfer');
+                                        Ext.getCmp('accountTaskList').goToNode(node);
                                     });
                                 }
                             });

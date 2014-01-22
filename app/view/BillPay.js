@@ -26,7 +26,7 @@ Ext.define('omb.view.BillPay', {
                         ]
                     },
                     {
-                        xtype: 'textfield',
+                        xtype: 'numberfield',
                         label: 'Amount'
                     },
                     {
@@ -37,7 +37,8 @@ Ext.define('omb.view.BillPay', {
                             Ext.Msg.confirm("Confirmation", "Are you sure?", function(response){
                                 if (response == 'yes') {
                                     Ext.Msg.alert("Confirmation", "Transfer complete", function(){
-
+                                        var node = store.getById('bill-pay');
+                                        Ext.getCmp('accountTaskList').goToNode(node);
                                     });
                                 }
                             });
