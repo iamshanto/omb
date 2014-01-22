@@ -31,7 +31,7 @@ Ext.application({
     ],
 
     views: [
-        'Main', 'Home', 'About', 'AccountDetail', 'FundTransfer', 'BillPay', 'Branch'
+        'Main', 'Home', 'About', 'AccountDetail', 'FundTransfer', 'BillPay', 'Branch', 'Map'
     ],
 
     icon: {

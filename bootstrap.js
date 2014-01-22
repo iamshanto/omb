@@ -754,7 +754,8 @@ Ext.ClassManager.addNameAlternateMappings({
   "omb.view.Branch": [],
   "omb.view.FundTransfer": [],
   "omb.view.Home": [],
-  "omb.view.Main": []
+  "omb.view.Main": [],
+  "omb.view.Map": []
 });
 Ext.ClassManager.addNameAliasMappings({
   "Ext.AbstractComponent": [],
@@ -1722,5 +1723,8 @@ Ext.ClassManager.addNameAliasMappings({
   ],
   "omb.view.Main": [
     "widget.main"
+  ],
+  "omb.view.Map": [
+    "widget.mappage"
   ]
 });
